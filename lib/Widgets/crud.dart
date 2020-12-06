@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
-
-void main() => runApp(MaterialApp(
-  theme: ThemeData(
-    brightness: Brightness.light,
-    accentColor: Colors.black,
-  ),
-  home: Crud(),
-));
+import 'package:inventory/generated/l10n.dart';
 
 class Crud extends StatefulWidget {
   @override
@@ -39,7 +32,7 @@ class _MyAppState extends State<Crud> {
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         leading: Icon(Icons.menu),
-        title: Text("Control de Inventario"),
+        title: Text(S.of(context).crudBar),
         elevation: 0.0,
         backgroundColor: Colors.transparent,
       ),
@@ -56,7 +49,7 @@ class _MyAppState extends State<Crud> {
                 return AlertDialog(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8)),
-                  title: Text("Añade un mobiliario."),
+                  title: Text(S.of(context).crudAdd),
                   content: TextField(
                     onChanged: (String value) {
                       input = value;
@@ -70,7 +63,7 @@ class _MyAppState extends State<Crud> {
                           });
                           Navigator.of(context).pop();
                         },
-                        child: Text("Añadir"))
+                        child: Text(S.of(context).add))
                   ],
                 );
               });
@@ -88,7 +81,7 @@ class _MyAppState extends State<Crud> {
                       borderRadius: BorderRadius.circular(8)),
                   child: ListTile(
                     title: Text(todos[index]),
-                    subtitle: Text("Descripción"),
+                    subtitle: Text(S.of(context).crudDescriptions),
                     trailing: IconButton(
                       icon: Icon(
                         Icons.delete,
